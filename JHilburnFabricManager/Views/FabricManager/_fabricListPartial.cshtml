@@ -1,0 +1,21 @@
+﻿@model JHilburnFabricManager.Models.FabricManagerViewModel
+
+<div id="pagedListProps" class="hidden" 
+     data-page="@Model.Page" data-to-page="@Model.Page"
+     data-per-page="@Model.PerPage" data-total-count="@Model.TotalCount" 
+    data-sort-by="@Model.SortBy" data-sort-dir="@Model.SortDir"></div>
+@foreach (var fabric in Model.Fabrics)
+{
+<div class="row col-md-12" data-id="@fabric.id">
+    <div class="col-md-1"><img class="img-responsive" src="@fabric.imgUrl" /></div>
+    <div class="col-md-1">@fabric.id</div>
+    <div class="col-md-1">@fabric.sku</div>
+    <div class="col-md-2">@fabric.description</div>
+    <div class="col-md-1">@fabric.price.ToString("C2")</div>
+    <div class="col-md-1">@fabric.active</div>
+    <div class="col-md-2">@fabric.category</div>
+    <div class="col-md-2">@fabric.inventory</div>
+    <div class="col-md-1"><button class="btn btn-warning fabricDelete">Delete</button></div>
+</div>
+}
+

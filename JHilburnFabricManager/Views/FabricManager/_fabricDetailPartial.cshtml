@@ -1,0 +1,69 @@
+﻿@model JHilburnFabricManager.Models.Fabric
+
+@{
+    var isCreate = Model.id == 0;
+}
+
+<div class="modal-header">
+    <h2>@(isCreate ? "Create Fabric" : "Fabric Detail")</h2>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span class="fa fa-times-circle" aria-hidden="true"></span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="form-group" data-is-create="@isCreate">
+        <div id="idInput" class="row col-sm-12 @(isCreate ? "d-none" : "")">
+            <span class="label col-sm-2">Fabric Id:</span>
+            <input class="form-control col-sm-2" id="fabricId" type="text" readonly="" value="@Model.id">
+        </div>
+        <div id="skuInput" class="row col-sm-12">
+            <span class="label col-sm-2">Sku: </span>
+            <input class="form-control col-sm-2" id="sku" type="text" value="@Model.sku">
+        </div>
+        <div id="descriptionInput" class="row col-sm-12">
+            <span class="label col-sm-2">Description: </span>
+            <input class="form-control col-sm-6" type="text" value="@Model.description">
+        </div>
+        <div id="priceInput" class="row col-sm-12">
+            <span class="label col-sm-2">Price:</span>
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control col-sm-2" aria-label="Price" value="@Model.price.ToString("F2")">
+        </div>
+        <div id="activeInput" class="row col-sm-12">
+            <span class="label col-sm-2">Active: </span>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="activeCheck" @(Model.active ? "checked" : "")>
+                <label class="custom-control-label" for="activeCheck"></label>
+            </div>
+        </div>
+        <div id="categoryInput" class="row col-sm-12">
+            <span class="label col-sm-2">Category: </span>
+            <select class="custom-select col-sm-2">
+                <!option value="Formal" @(Model.category == "Formal" ? "selected" : "" )>Formal</!option>
+                <!option value="Knits" @(Model.category == "Knits" ? "selected" : "" )>Knits</!option>
+                <!option value="Shirts" @(Model.category == "Shirts" ? "selected" : "" )>Shirts</!option>
+                <!option value="Sportcoats" @(Model.category == "Sportcoats" ? "selected" : "" )>Sportcoats</!option>
+                <!option value="Trousers" @(Model.category == "Trousers" ? "selected" : "" )>Trousers</!option>
+            </select>
+        </div>
+        <div id="inventoryInput" class="row col-sm-12">
+            <span class="label col-sm-2">Inventory: </span>
+            <input class="form-control col-sm-2" id="inventory" type="text" value="@Model.inventory">
+        </div>
+        <div id="imgInput" class="row col-sm-12 @(isCreate ? "d-none" : "")">
+            <span class="label col-sm-2">Image Url: </span>
+            <input class="form-control col-sm-10" type="text" value="@Model.imgUrl">
+        </div>
+        <div id="imgPreview" class="row col-sm-12 @(isCreate ? "d-none" : "")">
+            <span class="label col-sm-2">Preview: </span>
+            <img class="img-responsive preview" src="@Model.imgUrl" />
+            <button class="btn btn-info preview">Update Preview</button>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button id="saveDetail" class="btn btn-primary">Save</button>
+    <button class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+</div>

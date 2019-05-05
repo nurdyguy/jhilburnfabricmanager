@@ -1,0 +1,77 @@
+﻿@model JHilburnFabricManager.Models.FabricManagerViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="~/js/fabricManager.js"></script>
+
+<div class="row">
+    <div class="row col-sm-12">
+        <h2>Fabric Manager</h2>        
+    </div>
+    <div class="row col-sm-12">
+        <input id="searchInput" class="col-sm-4" placeholder="search by description" type="text" />
+        <div class="offset-sm-6 col-sm-2">
+            <button id="createFabric" class="btn btn-success">Add Fabric</button>
+        </div>
+    </div>
+    <div id="fabricTable" class="row col-md-12">
+        <div class="tableHead row col-md-12">
+            <div class="row col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-1 sortable" data-sort="id">Id&nbsp;<span class="sort fa fa-chevron-up"></span></div>
+                <div class="col-md-1 sortable" data-sort="sku">Sku&nbsp;<span class="sort fa"></span></div>
+                <div class="col-md-2 sortable" data-sort="description">Description&nbsp;<span class="sort fa"></span></div>
+                <div class="col-md-1 sortable" data-sort="price">Price&nbsp;<span class="sort fa"></span></div>
+                <div class="col-md-1 sortable" data-sort="active">Active&nbsp;<span class="sort fa"></span></div>
+                <div class="col-md-2 sortable" data-sort="category">Category&nbsp;<span class="sort fa"></span></div>
+                <div class="col-md-2 sortable" data-sort="inventory">Inventory&nbsp;<span class="sort fa"></span></div>  
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <div class="tableBody row col-md-12">
+            @await Html.PartialAsync("~/Views/FabricManager/_fabricListPartial.cshtml", Model)
+        </div>
+    </div>
+    <div id="paging" class="">
+        <div class="justify-content-end">
+            <ul class="pagination">
+                <li class="page-item page-first disabled">
+                    <a class="page-link"  data-page-num="first" href="#"><span class="fa fa-angle-double-left"></span></a>
+                </li>
+                <li class="page-item page-prev disabled">
+                    <a class="page-link"  data-page-num="prev" href="#"><span class="fa fa-angle-left"></span></a>
+                </li>
+                <li class="page-item page-num active">
+                    <a class="page-link" data-page-num="1" href="#">1</a>
+                </li>
+                @for(var i = 2; i <= Math.Ceiling((Model.TotalCount + .1) / Model.PerPage); i++)
+                { 
+                <li class="page-item page-num">
+                    <a class="page-link" data-page-num="@i" href="#">@i</a>
+                </li>
+                }
+                <li class="page-item page-next">
+                    <a class="page-link" data-page-num="next" href="#"><span class="fa fa-angle-right"></span></a>
+                </li>
+                <li class="page-item page-last">
+                    <a class="page-link" data-page-num="last" href="#"><span class="fa fa-angle-double-right"></span></a>
+                </li>
+            </ul>
+        </div>
+        <div id="buttonTemplate" class="d-none">
+            <li class="page-item page-num">
+                <a class="page-link" data-page-num="" href="#"></a>
+            </li>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fabricDetailModal" tabindex="-1" role="dialog" aria-labelledby="fabricDetailModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            
+        </div>
+    </div>
+</div>

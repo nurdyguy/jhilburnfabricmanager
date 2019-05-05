@@ -1,0 +1,83 @@
+﻿
+
+
+
+
+#fabricTable {
+    margin-top: 30px;
+
+    div.row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .tableHead {
+        font-size: 16px;
+        font-weight: 600;
+        padding-bottom: 15px;
+        margin-right: -17px;
+
+        > div {
+            padding-right: 17px;
+        }
+
+        .sortable{
+            cursor: pointer;
+        }
+    }
+
+    .tableBody {
+        max-height: 600px;
+        overflow-y: scroll;
+        border-top: solid black 2px;
+        border-bottom: solid black 2px;
+
+        .row {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            height:110px;
+            cursor:pointer;
+
+            &:nth-child(even) {
+                background-color: #f3f2f1;
+            }
+
+            &:nth-child(odd) {
+                background-color: #fff;
+            }
+
+            &:hover {
+                background-color: #dfdfdd;
+            }
+        }
+    }
+}
+
+#paging{
+    padding-right:30px;
+}
+
+#fabricDetailModal {
+    .form-group {
+        .row {
+            margin-top: 15px;
+
+            span.label {
+                font-size: 16px;
+                line-height: 2.3;
+            }
+
+            .custom-control.custom-checkbox{
+                margin-top:5px;
+            }
+
+            .btn.preview{
+                height:36px;
+                margin-left:20px;
+            }
+        }
+
+    }
+}

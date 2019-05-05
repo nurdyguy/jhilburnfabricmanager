@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "wwwroot/scss/site.css",
+    "inputFile": "wwwroot/scss/site.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/layout.css",
+    "inputFile": "wwwroot/scss/layout.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/fabricManager.css",
+    "inputFile": "wwwroot/scss/fabricManager.scss"
+  }
+]

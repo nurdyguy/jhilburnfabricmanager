@@ -1,0 +1,2 @@
+body #waitingOverlay{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.3)}body #waitingOverlay img{position:absolute;top:50%;bottom:50%;left:50%;right:50%;width:75px;height:75px}body div.container{max-width:1500px}
+/*# sourceMappingURL=layout.min.css.map */
